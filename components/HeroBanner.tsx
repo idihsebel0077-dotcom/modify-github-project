@@ -9,10 +9,12 @@ export default function HeroBanner({ title, showDescription = false }: HeroBanne
   return (
     <>
       {/* Red Banner with Title */}
-      <div className="bg-[#ED1C24] w-full py-10 px-5 flex items-center justify-start relative z-10 md:py-12 md:px-8">
-        <h1 className="text-2xl md:text-5xl font-black tracking-wide text-white uppercase">
-          {title}
-        </h1>
+      <div className="bg-[#CE0000] w-full h-[140px] flex items-start justify-start px-3">
+        <div className="w-full">
+          <h1 className="text-5xl font-bold tracking-tight text-white uppercase pt-[82px]">
+            {title}
+          </h1>
+        </div>
       </div>
 
       {/* Description Section - Only show for beranda */}

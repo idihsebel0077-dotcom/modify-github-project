@@ -26,78 +26,104 @@ export default function Navbar({ activeTab = 'beranda', onTabChange }: NavbarPro
   return (
     <>
       {/* Desktop Navbar */}
-      <nav className={`hidden md:block md:bg-white md:border-b md:border-gray-200 md:overflow-visible`}>
-        <div className="flex pl-12 pr-12 py-3 items-center justify-between gap-8 max-w-full mx-auto w-full relative">
-          {/* Logo Section */}
-          <button 
+      <nav className="hidden md:block md:bg-white md:border-b md:border-gray-200 w-full">
+        {/*
+          NAVBAR_HEIGHT: this fixed height controls the navbar's box.
+          Because the logo and menu below are positioned with `absolute`,
+          resizing/repositioning them will NEVER change this container's
+          height anymore — the two are now fully decoupled.
+          👉 Change the navbar's overall height here (currently 100px).
+        */}
+        <div className="relative w-full h-[117px]">
+
+          {/*
+            LOGO_POSITION_AND_SIZE
+            - Position on screen: controlled by `left-[24px]` (distance from
+              left edge) and `top-1/2 -translate-y-1/2` (vertically centered).
+              ⚠️ Always use square brackets like `left-[30px]` for a custom
+              number — plain `left-30` is NOT a valid Tailwind class (Tailwind's
+              spacing scale skips straight from 28 to 32) so it silently does
+              nothing. `left-[Npx]` accepts ANY number.
+              Swap the vertical centering for a fixed `top-[Npx]` if you'd
+              rather set the vertical position manually instead of auto-center.
+            - Size: controlled ONLY by the w-[...] h-[...] on the inner
+              `relative` div a few lines below (currently 300px x 92px).
+              Change that div freely — it will no longer affect navbar height.
+          */}
+          <button
             onClick={handleLogoClick}
-            className="cursor-pointer hover:opacity-80 transition-opacity flex-shrink-0"
+            className="absolute left-[0px] top-1/2 -translate-y-1/2 cursor-pointer hover:opacity-80 transition-opacity"
           >
-            <div className="w-20 aspect-video overflow-hidden relative">
+            <div className="relative w-[350px] h-[142px]"> {/* 👈 LOGO SIZE: edit w-[...] h-[...] here */}
               <Image
                 src="https://res.cloudinary.com/dyromez82/image/upload/v1783281334/Artboard_25_300x_cgubub.png"
                 alt="PSI Logo"
-                width={280}
-                height={140}
-                className="object-contain object-left h-full w-auto"
+                fill
+                priority
+                className="object-contain object-left"
               />
             </div>
           </button>
 
-          {/* Menu Items */}
-          <div className="flex items-center gap-6 ml-auto">
+          {/*
+            MENU_POSITION_AND_SIZE
+            - Position on screen: controlled by `right-[24px]` (distance from
+              right edge) and `top-1/2 -translate-y-1/2` (vertically centered).
+              Same rule applies: use `right-[Npx]`, not plain `right-30`.
+            - Spacing between items: `gap-[24px]` below (same bracket rule).
+            - Font size of each link: `text-[15px]` on each individual button.
+          */}
+          <div className="absolute right-[24px] top-1/2 -translate-y-1/2 flex items-center gap-[24px]">
             <button
               onClick={() => handleTabClick('beranda')}
-              className={`font-semibold text-base whitespace-nowrap transition-colors ${
+              className={`text-[17px] font-medium whitespace-nowrap transition-colors ${
                 activeTab === 'beranda'
-                  ? 'text-black hover:text-gray-800'
-                  : 'text-gray-600 hover:text-black'
+                  ? 'text-[#2F2F2F]'
+                  : 'text-[#CE0000]'
               }`}
             >
               Beranda
             </button>
             <button
               onClick={() => handleTabClick('struktur-pengurus')}
-              className={`font-semibold text-base whitespace-nowrap transition-colors ${
+              className={`text-[17px] font-medium  whitespace-nowrap transition-colors flex items-center gap-1 ${
                 activeTab === 'struktur-pengurus'
-                  ? 'text-black hover:text-gray-800'
-                  : 'text-gray-600 hover:text-black'
+                  ? 'text-[#2F2F2F]'
+                  : 'text-[#CE0000]'
               }`}
             >
               Struktur Pengurus
             </button>
             <button
               onClick={() => handleTabClick('agenda-absensi')}
-              className={`font-semibold text-base whitespace-nowrap transition-colors ${
+              className={`text-[17px] font-medium  whitespace-nowrap transition-colors ${
                 activeTab === 'agenda-absensi'
-                  ? 'text-black hover:text-gray-800'
-                  : 'text-gray-600 hover:text-black'
+                  ? 'text-[#2F2F2F]'
+                  : 'text-[#CE0000]'
               }`}
             >
               Agenda & Absensi
             </button>
+            <button className="text-[#2F2F2F] hover:opacity-70 transition-opacity flex-shrink-0 ml-3">
+              <Search size={19} strokeWidth={4} />
+            </button>
           </div>
-
-          {/* Search Icon */}
-          <button className="text-black hover:text-gray-700 flex-shrink-0 transition-colors ml-4">
-            <Search size={22} />
-          </button>
         </div>
       </nav>
 
       {/* Mobile Navbar - Static flow */}
-      <nav className="md:hidden bg-white border-b border-gray-200 w-full h-24 flex items-center justify-between px-3">
-        {/* Logo Mobile - Cropped */}
+      <nav className="md:hidden bg-white border-b border-gray-200 w-full h-20 flex items-center justify-between px-4">
+        {/* Logo Mobile */}
         <button 
           onClick={handleLogoClick}
-          className="cursor-pointer hover:opacity-80 transition-opacity flex-shrink-0 w-40 aspect-video overflow-hidden relative"
+          className="cursor-pointer hover:opacity-80 transition-opacity flex-shrink-0 relative w-36 h-14"
         >
           <Image
             src="https://res.cloudinary.com/dyromez82/image/upload/v1783281334/Artboard_25_300x_cgubub.png"
             alt="PSI Logo"
-            width={350}
-            height={175}
-            className="object-contain object-left h-full w-auto"
+            fill
+            priority
+            className="object-contain object-left"
           />
         </button>
 
