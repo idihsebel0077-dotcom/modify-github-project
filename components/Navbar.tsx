@@ -89,7 +89,7 @@ export default function Navbar({ activeTab = 'beranda', onTabChange }: NavbarPro
         {/* Logo Mobile */}
         <button 
           onClick={handleLogoClick}
-          className="cursor-pointer hover:opacity-80 transition-opacity flex-shrink-0 relative w-40 h-18"
+          className="cursor-pointer hover:opacity-80 transition-opacity flex-shrink-0 relative w-36 h-14"
         >
           <Image
             src="https://res.cloudinary.com/dyromez82/image/upload/v1783281334/Artboard_25_300x_cgubub.png"
