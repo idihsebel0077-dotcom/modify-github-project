@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import { Search, Menu, X } from 'lucide-react';
 import { useState } from 'react';
+import { useScrollHide } from '@/hooks/useScrollHide';
 
 interface NavbarProps {
   activeTab?: string;
@@ -11,6 +12,7 @@ interface NavbarProps {
 
 export default function Navbar({ activeTab = 'beranda', onTabChange }: NavbarProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const translateY = useScrollHide();
 
   const handleTabClick = (tab: string) => {
     if (onTabChange) {
@@ -26,7 +28,8 @@ export default function Navbar({ activeTab = 'beranda', onTabChange }: NavbarPro
   return (
     <>
       {/* Desktop Navbar */}
-      <nav className={`hidden md:block md:bg-white md:border-b md:border-gray-200 w-full`}
+      <nav className={`hidden md:block md:fixed md:top-8 md:left-0 md:right-0 md:z-[60] md:bg-white md:border-b md:border-gray-200 md:overflow-visible md:transition-transform md:duration-200 md:ease-out`}
+        style={{ transform: `translateY(${translateY}%)` }}
       >
         <div className="flex pl-12 pr-12 py-3 items-center justify-between gap-8 max-w-full mx-auto w-full relative">
           {/* Logo Section with Subtitle */}
@@ -34,7 +37,7 @@ export default function Navbar({ activeTab = 'beranda', onTabChange }: NavbarPro
             onClick={handleLogoClick}
             className="flex items-center gap-3 cursor-pointer hover:opacity-80 transition-opacity flex-shrink-0"
           >
-            <div className="w-40 aspect-video overflow-hidden relative">
+            <div className="w-30 aspect-video overflow-hidden relative">
               <Image
                 src="https://res.cloudinary.com/dyromez82/image/upload/v1783281334/Artboard_25_300x_cgubub.png"
                 alt="PSI Logo"
@@ -90,28 +93,7 @@ export default function Navbar({ activeTab = 'beranda', onTabChange }: NavbarPro
         </div>
       </nav>
 
-
-    </>
-  );
-}
-
-export function MobileNavbar({ activeTab = 'beranda', onTabChange }: NavbarProps) {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  const handleTabClick = (tab: string) => {
-    if (onTabChange) {
-      onTabChange(tab);
-    }
-    setMobileMenuOpen(false);
-  };
-
-  const handleLogoClick = () => {
-    handleTabClick('beranda');
-  };
-
-  return (
-    <>
-      {/* Mobile Navbar - Fixed */}
+      {/* Mobile Navbar - Static flow */}
       <nav className="md:hidden bg-white border-b border-gray-200 w-full h-24 flex items-center justify-between px-3">
         {/* Logo Mobile - Cropped */}
         <button 
@@ -141,7 +123,7 @@ export function MobileNavbar({ activeTab = 'beranda', onTabChange }: NavbarProps
         </div>
       </nav>
 
-      {/* Backdrop Overlay */}
+      {/* Backdrop Overlay - Paling Luar */}
       {mobileMenuOpen && (
         <div 
           className="md:hidden fixed inset-0 bg-black/50 z-[9998]"
@@ -149,7 +131,7 @@ export function MobileNavbar({ activeTab = 'beranda', onTabChange }: NavbarProps
         />
       )}
 
-      {/* Mobile Drawer */}
+      {/* Mobile Drawer - Paling Luar & Paling Tinggi */}
       {mobileMenuOpen && (
         <div className="md:hidden fixed top-0 left-0 h-screen w-[75vw] bg-red-600 z-[9999] flex flex-col">
           {/* Close Button - Top Right */}

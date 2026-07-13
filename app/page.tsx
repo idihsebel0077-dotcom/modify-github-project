@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import UtilityBar from '@/components/UtilityBar';
-import Navbar, { MobileNavbar } from '@/components/Navbar';
+import Navbar from '@/components/Navbar';
 import HeroBanner from '@/components/HeroBanner';
 import OrganizerGrid from '@/components/OrganizerGrid';
 import EventSection from '@/components/EventSection';
@@ -17,24 +17,17 @@ export default function Home() {
   const [selectedMember, setSelectedMember] = useState<any>(null);
 
   return (
-    <>
-      {/* UtilityBar - Fixed at top */}
-      <div className="fixed top-0 left-0 right-0 z-[9999]">
+    <div className="w-full min-h-screen h-auto bg-white flex flex-col overflow-x-hidden">
+      {/* Header - Desktop floating, Mobile normal flow */}
+      <div className="md:fixed md:top-0 md:left-0 md:right-0 md:z-40">
         <UtilityBar />
-      </div>
-
-      {/* Desktop Navbar - Fixed below UtilityBar */}
-      <div className="fixed top-8 left-0 right-0 z-[9998]">
         <Navbar activeTab={activeTab} onTabChange={setActiveTab} />
       </div>
 
-      {/* Mobile Navbar - Fixed below UtilityBar */}
-      <div className="fixed top-8 left-0 right-0 z-[9998]">
-        <MobileNavbar activeTab={activeTab} onTabChange={setActiveTab} />
-      </div>
+
 
       {/* Content Area - Full viewport scrollable by tab */}
-      <main className="pt-32 md:pt-48 w-full min-h-screen h-auto bg-white">
+      <main className="flex-1 md:h-full md:pt-40 w-full min-h-screen h-auto">
         {/* Beranda Tab */}
         {activeTab === 'beranda' && (
           <HeroBanner title="Tentang PSI" showDescription={true} />
@@ -61,6 +54,6 @@ export default function Home() {
 
       {/* WhatsApp Widget */}
       <WhatsAppWidget />
-    </>
+    </div>
   );
 }
