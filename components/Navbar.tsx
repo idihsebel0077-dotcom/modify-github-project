@@ -88,31 +88,31 @@ export default function Navbar({ activeTab = 'beranda', onTabChange }: NavbarPro
       </nav>
 
       {/* Mobile Navbar - Static flow */}
-      <nav className="md:hidden bg-white border-b border-gray-200 w-full h-14 flex items-center justify-between px-3">
+      <nav className="md:hidden bg-white border-b border-gray-200 w-full h-16 flex items-center justify-between px-3">
         {/* Logo Mobile - Cropped */}
         <button 
           onClick={handleLogoClick}
-          className="cursor-pointer hover:opacity-80 transition-opacity flex-shrink-0 w-28 h-9 overflow-hidden relative"
+          className="cursor-pointer hover:opacity-80 transition-opacity flex-shrink-0 w-[150px] h-12 overflow-hidden relative"
         >
           <Image
             src="https://res.cloudinary.com/dyromez82/image/upload/v1783281334/Artboard_25_300x_cgubub.png"
             alt="PSI Logo"
-            width={280}
-            height={140}
+            width={320}
+            height={160}
             className="absolute left-0 top-0 h-full w-auto max-w-none object-left object-contain"
           />
         </button>
 
         {/* Mobile Menu Icons - Right side */}
         <div className="flex items-center gap-4 flex-shrink-0">
-          <button className="text-black hover:opacity-70 transition-opacity p-1">
-            <Search size={20} strokeWidth={1.5} />
+          <button className="text-black stroke-[2.5] w-6 h-6 flex items-center justify-center hover:opacity-70 transition-opacity">
+            <Search size={22} strokeWidth={2.5} />
           </button>
           <button 
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="text-black hover:opacity-70 transition-opacity p-1"
+            className="text-black stroke-[2.5] w-6 h-6 flex items-center justify-center hover:opacity-70 transition-opacity"
           >
-            <Menu size={20} strokeWidth={1.5} />
+            <Menu size={22} strokeWidth={2.5} />
           </button>
         </div>
       </nav>

@@ -33,7 +33,7 @@ export default function Home() {
       </div>
 
       {/* Content Area - Full viewport scrollable by tab */}
-      <main className="flex-1 md:overflow-y-auto md:h-full md:pt-40 w-full min-h-screen h-auto overflow-y-visible md:overflow-y-visible">
+      <main className="flex-1 md:h-full md:pt-40 w-full min-h-screen h-auto">
         {/* Beranda Tab */}
         {activeTab === 'beranda' && (
           <HeroBanner title="Tentang PSI" showDescription={true} />
