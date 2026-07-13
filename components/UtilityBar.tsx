@@ -6,7 +6,7 @@ export default function UtilityBar() {
   const translateY = useScrollHide();
 
   return (
-    <div className={`md:fixed md:top-0 md:left-0 md:right-0 md:z-[99] w-full bg-black text-white h-8 flex items-center justify-end gap-3 px-4 text-xs overflow-hidden`}
+    <div className={`w-full bg-black text-white h-8 flex items-center justify-end gap-3 px-4 text-xs overflow-hidden`}
       style={{
         transform: `translateY(${translateY}%)`,
         pointerEvents: translateY < -95 ? 'none' : 'auto'
