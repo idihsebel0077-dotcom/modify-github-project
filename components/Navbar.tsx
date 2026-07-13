@@ -76,7 +76,7 @@ export default function Navbar({ activeTab = 'beranda', onTabChange }: NavbarPro
           <div className="absolute right-[24px] top-1/2 -translate-y-1/2 flex items-center gap-[24px]">
             <button
               onClick={() => handleTabClick('beranda')}
-              className={`text-[15px] font-medium whitespace-nowrap transition-colors ${
+              className={`text-[17px] font-medium whitespace-nowrap transition-colors ${
                 activeTab === 'beranda'
                   ? 'text-[#2F2F2F]'
                   : 'text-[#CE0000]'
@@ -86,7 +86,7 @@ export default function Navbar({ activeTab = 'beranda', onTabChange }: NavbarPro
             </button>
             <button
               onClick={() => handleTabClick('struktur-pengurus')}
-              className={`text-[15px] font-medium  whitespace-nowrap transition-colors flex items-center gap-1 ${
+              className={`text-[17px] font-medium  whitespace-nowrap transition-colors flex items-center gap-1 ${
                 activeTab === 'struktur-pengurus'
                   ? 'text-[#2F2F2F]'
                   : 'text-[#CE0000]'
@@ -96,7 +96,7 @@ export default function Navbar({ activeTab = 'beranda', onTabChange }: NavbarPro
             </button>
             <button
               onClick={() => handleTabClick('agenda-absensi')}
-              className={`text-[15px] font-medium  whitespace-nowrap transition-colors ${
+              className={`text-[17px] font-medium  whitespace-nowrap transition-colors ${
                 activeTab === 'agenda-absensi'
                   ? 'text-[#2F2F2F]'
                   : 'text-[#CE0000]'
@@ -105,7 +105,7 @@ export default function Navbar({ activeTab = 'beranda', onTabChange }: NavbarPro
               Agenda & Absensi
             </button>
             <button className="text-[#2F2F2F] hover:opacity-70 transition-opacity flex-shrink-0 ml-3">
-              <Search size={19} strokeWidth={2} />
+              <Search size={19} strokeWidth={4} />
             </button>
           </div>
         </div>
