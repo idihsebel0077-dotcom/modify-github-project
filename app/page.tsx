@@ -17,7 +17,7 @@ export default function Home() {
   const [selectedMember, setSelectedMember] = useState<any>(null);
 
   return (
-    <div className="w-full min-h-screen h-auto bg-white flex flex-col overflow-x-hidden">
+    <>
       {/* UtilityBar - Fixed at top */}
       <div className="fixed top-0 left-0 right-0 z-50">
         <UtilityBar />
@@ -28,10 +28,8 @@ export default function Home() {
         <Navbar activeTab={activeTab} onTabChange={setActiveTab} />
       </div>
 
-
-
       {/* Content Area - Full viewport scrollable by tab */}
-      <main className="flex-1 md:pt-48 w-full min-h-screen h-auto">
+      <main className="pt-32 md:pt-48 w-full min-h-screen h-auto bg-white">
         {/* Beranda Tab */}
         {activeTab === 'beranda' && (
           <HeroBanner title="Tentang PSI" showDescription={true} />
@@ -58,6 +56,6 @@ export default function Home() {
 
       {/* WhatsApp Widget */}
       <WhatsAppWidget />
-    </div>
+    </>
   );
 }
