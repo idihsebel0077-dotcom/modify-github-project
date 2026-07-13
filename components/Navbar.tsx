@@ -34,7 +34,7 @@ export default function Navbar({ activeTab = 'beranda', onTabChange }: NavbarPro
           height anymore — the two are now fully decoupled.
           👉 Change the navbar's overall height here (currently 100px).
         */}
-        <div className="relative w-full h-[115px]">
+        <div className="relative w-full h-[117px]">
 
           {/*
             LOGO_POSITION_AND_SIZE
