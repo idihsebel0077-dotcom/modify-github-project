@@ -98,14 +98,14 @@ export default function Navbar({ activeTab = 'beranda', onTabChange }: NavbarPro
         {/* Logo Mobile - Cropped */}
         <button 
           onClick={handleLogoClick}
-          className="cursor-pointer hover:opacity-80 transition-opacity flex-shrink-0 w-[165px] h-16 overflow-hidden relative"
+          className="cursor-pointer hover:opacity-80 transition-opacity flex-shrink-0 w-40 aspect-video overflow-hidden relative"
         >
           <Image
             src="https://res.cloudinary.com/dyromez82/image/upload/v1783281334/Artboard_25_300x_cgubub.png"
             alt="PSI Logo"
             width={350}
             height={175}
-            className="absolute left-0 top-0 h-full w-auto max-w-none object-left object-contain"
+            className="object-contain object-left h-full w-auto"
           />
         </button>
 
