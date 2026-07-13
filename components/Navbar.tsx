@@ -28,52 +28,52 @@ export default function Navbar({ activeTab = 'beranda', onTabChange }: NavbarPro
   return (
     <>
       {/* Desktop Navbar */}
-      <nav className={`hidden md:fixed md:-top-2.5 md:left-0 md:right-0 md:z-[60] md:bg-white md:border-b md:border-gray-200 md:overflow-visible md:transition-transform md:duration-200 md:ease-out`}
+      <nav className={`hidden md:block md:fixed md:top-8 md:left-0 md:right-0 md:z-[60] md:bg-white md:border-b md:border-gray-200 md:overflow-visible md:transition-transform md:duration-200 md:ease-out`}
         style={{ transform: `translateY(${translateY}%)` }}
       >
-        <div className="flex pl-8 pr-2 py-18 items-center justify-end gap-5 max-w-full mx-auto w-full relative">
+        <div className="flex pl-8 pr-8 py-4 items-center justify-end gap-5 max-w-full mx-auto w-full relative">
           {/* Logo Section */}
           <button 
             onClick={handleLogoClick}
-            className="fixed left-0 top-17 z-[61] cursor-pointer hover:opacity-80 transition-opacity"
+            className="absolute left-8 top-1/2 -translate-y-1/2 z-[61] cursor-pointer hover:opacity-80 transition-opacity w-40 h-16"
           >
             <Image
               src="https://res.cloudinary.com/dyromez82/image/upload/v1783281334/Artboard_25_300x_cgubub.png"
               alt="PSI Logo"
-              width={350}
-              height={350}
-              className="object-contain"
+              width={280}
+              height={140}
+              className="object-contain object-left h-full w-auto"
             />
           </button>
 
           {/* Menu Items */}
-          <div className="flex items-end gap-3 md:gap-6 flex-wrap">
+          <div className="flex items-center gap-8 ml-auto mr-6">
             <button
               onClick={() => handleTabClick('beranda')}
-              className={`font-semibold text-sm md:text-base whitespace-nowrap translate-y-6 transition-colors ${
+              className={`font-semibold text-base whitespace-nowrap transition-colors ${
                 activeTab === 'beranda'
                   ? 'text-black hover:text-gray-800'
-                  : 'text-red-600 hover:text-red-700'
+                  : 'text-gray-600 hover:text-black'
               }`}
             >
               Beranda
             </button>
             <button
               onClick={() => handleTabClick('struktur-pengurus')}
-              className={`font-semibold text-sm md:text-base whitespace-nowrap translate-y-6 transition-colors ${
+              className={`font-semibold text-base whitespace-nowrap transition-colors ${
                 activeTab === 'struktur-pengurus'
                   ? 'text-black hover:text-gray-800'
-                  : 'text-red-600 hover:text-red-700'
+                  : 'text-gray-600 hover:text-black'
               }`}
             >
               Struktur Pengurus
             </button>
             <button
               onClick={() => handleTabClick('agenda-absensi')}
-              className={`font-semibold text-sm md:text-base whitespace-nowrap translate-y-6 transition-colors ${
+              className={`font-semibold text-base whitespace-nowrap transition-colors ${
                 activeTab === 'agenda-absensi'
                   ? 'text-black hover:text-gray-800'
-                  : 'text-red-600 hover:text-red-700'
+                  : 'text-gray-600 hover:text-black'
               }`}
             >
               Agenda & Absensi
@@ -81,7 +81,7 @@ export default function Navbar({ activeTab = 'beranda', onTabChange }: NavbarPro
           </div>
 
           {/* Search Icon */}
-          <button className="text-red-600 hover:text-red-700 flex-shrink-0 translate-y-6 transition-colors">
+          <button className="text-black hover:text-gray-700 flex-shrink-0 transition-colors">
             <Search size={22} />
           </button>
         </div>
