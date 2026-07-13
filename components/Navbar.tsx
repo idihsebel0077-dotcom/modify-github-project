@@ -27,17 +27,13 @@ export default function Navbar({ activeTab = 'beranda', onTabChange }: NavbarPro
     <>
       {/* Desktop Navbar */}
       <nav className="hidden md:block md:bg-white md:border-b md:border-gray-200 w-full">
-        <div className="flex items-center justify-between px-6 lg:px-10 py-4 w-full">
+        <div className="flex items-center justify-between px-6 py-3 w-full">
           {/* Logo Section */}
           <button 
             onClick={handleLogoClick}
             className="cursor-pointer hover:opacity-80 transition-opacity flex-shrink-0"
           >
-            {/* Using `fill` + object-contain (instead of fixed width/height on the
-               Image) keeps the logo's real aspect ratio intact so it no longer
-               gets stretched/squashed. Only the wrapper box size below controls
-               how big the logo appears. */}
-            <div className="relative w-[230px] h-[84px]">
+            <div className="relative w-[300px] h-[92px]">
               <Image
                 src="https://res.cloudinary.com/dyromez82/image/upload/v1783281334/Artboard_25_300x_cgubub.png"
                 alt="PSI Logo"
@@ -49,7 +45,7 @@ export default function Navbar({ activeTab = 'beranda', onTabChange }: NavbarPro
           </button>
 
           {/* Menu Items + Search */}
-          <div className="flex items-center gap-8 ml-auto">
+          <div className="flex items-center gap-6 ml-auto">
             <button
               onClick={() => handleTabClick('beranda')}
               className={`text-[15px] font-normal whitespace-nowrap transition-colors ${
@@ -81,7 +77,7 @@ export default function Navbar({ activeTab = 'beranda', onTabChange }: NavbarPro
             >
               Agenda & Absensi
             </button>
-            <button className="text-[#2F2F2F] hover:opacity-70 transition-opacity flex-shrink-0 ml-4">
+            <button className="text-[#2F2F2F] hover:opacity-70 transition-opacity flex-shrink-0 ml-3">
               <Search size={19} strokeWidth={2} />
             </button>
           </div>
