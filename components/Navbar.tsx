@@ -50,7 +50,7 @@ export default function Navbar({ activeTab = 'beranda', onTabChange }: NavbarPro
             onClick={handleLogoClick}
             className="absolute left-6 top-1/2 -translate-y-1/2 cursor-pointer hover:opacity-80 transition-opacity"
           >
-            <div className="relative w-[340px] h-[132px]"> {/* 👈 LOGO SIZE: edit w-[...] h-[...] here */}
+            <div className="relative w-[350px] h-[142px]"> {/* 👈 LOGO SIZE: edit w-[...] h-[...] here */}
               <Image
                 src="https://res.cloudinary.com/dyromez82/image/upload/v1783281334/Artboard_25_300x_cgubub.png"
                 alt="PSI Logo"
@@ -64,7 +64,7 @@ export default function Navbar({ activeTab = 'beranda', onTabChange }: NavbarPro
           {/*
             MENU_POSITION_AND_SIZE
             - Position on screen: controlled by `right-6` (distance from
-              right edge) and `top-1/2 -translate-y-1/2` (vertically centered).
+              right edge) and `top-[20px]` (vertically centered).
             - Spacing between items: `gap-6` below.
             - Font size of each link: `text-[15px]` on each individual button.
           */}
