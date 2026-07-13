@@ -27,28 +27,32 @@ export default function Navbar({ activeTab = 'beranda', onTabChange }: NavbarPro
     <>
       {/* Desktop Navbar */}
       <nav className="hidden md:block md:bg-white md:border-b md:border-gray-200 w-full">
-        <div className="flex items-center justify-between px-3 py-5 w-full">
+        <div className="flex items-center justify-between px-6 lg:px-10 py-4 w-full">
           {/* Logo Section */}
           <button 
             onClick={handleLogoClick}
             className="cursor-pointer hover:opacity-80 transition-opacity flex-shrink-0"
           >
-            <div className="w-[155px] h-[76px] overflow-hidden relative">
+            {/* Using `fill` + object-contain (instead of fixed width/height on the
+               Image) keeps the logo's real aspect ratio intact so it no longer
+               gets stretched/squashed. Only the wrapper box size below controls
+               how big the logo appears. */}
+            <div className="relative w-[230px] h-[84px]">
               <Image
                 src="https://res.cloudinary.com/dyromez82/image/upload/v1783281334/Artboard_25_300x_cgubub.png"
                 alt="PSI Logo"
-                width={280}
-                height={140}
-                className="object-contain object-left h-full w-auto"
+                fill
+                priority
+                className="object-contain object-left"
               />
             </div>
           </button>
 
           {/* Menu Items + Search */}
-          <div className="flex items-center gap-6 ml-auto">
+          <div className="flex items-center gap-8 ml-auto">
             <button
               onClick={() => handleTabClick('beranda')}
-              className={`text-sm font-normal whitespace-nowrap transition-colors ${
+              className={`text-[15px] font-normal whitespace-nowrap transition-colors ${
                 activeTab === 'beranda'
                   ? 'text-[#2F2F2F]'
                   : 'text-[#CE0000]'
@@ -58,7 +62,7 @@ export default function Navbar({ activeTab = 'beranda', onTabChange }: NavbarPro
             </button>
             <button
               onClick={() => handleTabClick('struktur-pengurus')}
-              className={`text-sm font-normal whitespace-nowrap transition-colors flex items-center gap-1 ${
+              className={`text-[15px] font-normal whitespace-nowrap transition-colors flex items-center gap-1 ${
                 activeTab === 'struktur-pengurus'
                   ? 'text-[#2F2F2F]'
                   : 'text-[#CE0000]'
@@ -69,7 +73,7 @@ export default function Navbar({ activeTab = 'beranda', onTabChange }: NavbarPro
             </button>
             <button
               onClick={() => handleTabClick('agenda-absensi')}
-              className={`text-sm font-normal whitespace-nowrap transition-colors ${
+              className={`text-[15px] font-normal whitespace-nowrap transition-colors ${
                 activeTab === 'agenda-absensi'
                   ? 'text-[#2F2F2F]'
                   : 'text-[#CE0000]'
@@ -77,26 +81,26 @@ export default function Navbar({ activeTab = 'beranda', onTabChange }: NavbarPro
             >
               Agenda & Absensi
             </button>
-            <button className="text-[#2F2F2F] hover:opacity-70 transition-opacity flex-shrink-0 ml-7">
-              <Search size={18} strokeWidth={2} />
+            <button className="text-[#2F2F2F] hover:opacity-70 transition-opacity flex-shrink-0 ml-4">
+              <Search size={19} strokeWidth={2} />
             </button>
           </div>
         </div>
       </nav>
 
       {/* Mobile Navbar - Static flow */}
-      <nav className="md:hidden bg-white border-b border-gray-200 w-full h-24 flex items-center justify-between px-3">
-        {/* Logo Mobile - Cropped */}
+      <nav className="md:hidden bg-white border-b border-gray-200 w-full h-20 flex items-center justify-between px-4">
+        {/* Logo Mobile */}
         <button 
           onClick={handleLogoClick}
-          className="cursor-pointer hover:opacity-80 transition-opacity flex-shrink-0 w-40 aspect-video overflow-hidden relative"
+          className="cursor-pointer hover:opacity-80 transition-opacity flex-shrink-0 relative w-36 h-14"
         >
           <Image
             src="https://res.cloudinary.com/dyromez82/image/upload/v1783281334/Artboard_25_300x_cgubub.png"
             alt="PSI Logo"
-            width={350}
-            height={175}
-            className="object-contain object-left h-full w-auto"
+            fill
+            priority
+            className="object-contain object-left"
           />
         </button>
 
