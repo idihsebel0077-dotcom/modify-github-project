@@ -38,8 +38,12 @@ export default function Navbar({ activeTab = 'beranda', onTabChange }: NavbarPro
 
           {/*
             LOGO_POSITION_AND_SIZE
-            - Position on screen: controlled by `left-15` (distance from left
-              edge) and `top-1/2 -translate-y-1/2` (vertically centered).
+            - Position on screen: controlled by `left-[24px]` (distance from
+              left edge) and `top-1/2 -translate-y-1/2` (vertically centered).
+              ⚠️ Always use square brackets like `left-[30px]` for a custom
+              number — plain `left-30` is NOT a valid Tailwind class (Tailwind's
+              spacing scale skips straight from 28 to 32) so it silently does
+              nothing. `left-[Npx]` accepts ANY number.
               Swap the vertical centering for a fixed `top-[Npx]` if you'd
               rather set the vertical position manually instead of auto-center.
             - Size: controlled ONLY by the w-[...] h-[...] on the inner
@@ -48,7 +52,7 @@ export default function Navbar({ activeTab = 'beranda', onTabChange }: NavbarPro
           */}
           <button
             onClick={handleLogoClick}
-            className="absolute left-6 top-1/2 -translate-y-1/2 cursor-pointer hover:opacity-80 transition-opacity"
+            className="absolute left-[24px] top-1/2 -translate-y-1/2 cursor-pointer hover:opacity-80 transition-opacity"
           >
             <div className="relative w-[350px] h-[142px]"> {/* 👈 LOGO SIZE: edit w-[...] h-[...] here */}
               <Image
@@ -63,12 +67,13 @@ export default function Navbar({ activeTab = 'beranda', onTabChange }: NavbarPro
 
           {/*
             MENU_POSITION_AND_SIZE
-            - Position on screen: controlled by `right-6` (distance from
+            - Position on screen: controlled by `right-[24px]` (distance from
               right edge) and `top-1/2 -translate-y-1/2` (vertically centered).
-            - Spacing between items: `gap-6` below.
+              Same rule applies: use `right-[Npx]`, not plain `right-30`.
+            - Spacing between items: `gap-[24px]` below (same bracket rule).
             - Font size of each link: `text-[15px]` on each individual button.
           */}
-          <div className="absolute right-6 top-1/2 -translate-y-1/2 flex items-center gap-6">
+          <div className="absolute right-[24px] top-1/2 -translate-y-1/2 flex items-center gap-[24px]">
             <button
               onClick={() => handleTabClick('beranda')}
               className={`text-[15px] font-normal whitespace-nowrap transition-colors ${
