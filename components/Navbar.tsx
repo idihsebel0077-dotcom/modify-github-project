@@ -31,24 +31,24 @@ export default function Navbar({ activeTab = 'beranda', onTabChange }: NavbarPro
       <nav className={`hidden md:block md:fixed md:top-8 md:left-0 md:right-0 md:z-[60] md:bg-white md:border-b md:border-gray-200 md:overflow-visible md:transition-transform md:duration-200 md:ease-out`}
         style={{ transform: `translateY(${translateY}%)` }}
       >
-        <div className="flex pl-8 pr-8 py-2 items-center justify-between gap-6 max-w-full mx-auto w-full relative">
+        <div className="flex pl-12 pr-12 py-3 items-center justify-between gap-8 max-w-full mx-auto w-full relative">
           {/* Logo Section with Subtitle */}
           <button 
             onClick={handleLogoClick}
-            className="flex items-center gap-2 cursor-pointer hover:opacity-80 transition-opacity flex-shrink-0"
+            className="flex items-center gap-3 cursor-pointer hover:opacity-80 transition-opacity flex-shrink-0"
           >
-            <div className="w-16 h-12 overflow-hidden relative flex-shrink-0">
+            <div className="w-20 h-16 overflow-hidden relative">
               <Image
                 src="https://res.cloudinary.com/dyromez82/image/upload/v1783281334/Artboard_25_300x_cgubub.png"
                 alt="PSI Logo"
-                width={240}
-                height={120}
+                width={280}
+                height={140}
                 className="object-contain object-left h-full w-auto"
               />
             </div>
-            <div className="text-xs text-gray-600 leading-snug">
-              <div className="font-bold text-sm">PSI</div>
-              <div className="text-[10px]">Partai Super Tbk.</div>
+            <div className="text-sm text-gray-700 leading-tight">
+              <div className="font-semibold">PSI</div>
+              <div className="text-xs">Partai Super Tbk.</div>
             </div>
           </button>
 
