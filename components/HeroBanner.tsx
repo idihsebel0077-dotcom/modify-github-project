@@ -9,9 +9,9 @@ export default function HeroBanner({ title, showDescription = false }: HeroBanne
   return (
     <>
       {/* Red Banner with Title */}
-      <div className="bg-[#CE0000] w-full h-[140px] flex items-center justify-start px-8">
-        <div className="max-w-7xl mx-auto w-full">
-          <h1 className="text-4xl font-bold tracking-tight text-white uppercase pt-24 pb-5">
+      <div className="bg-[#CE0000] w-full h-[140px] flex items-start justify-start px-3">
+        <div className="w-full">
+          <h1 className="text-5xl font-bold tracking-tight text-white uppercase pt-[88px]">
             {title}
           </h1>
         </div>

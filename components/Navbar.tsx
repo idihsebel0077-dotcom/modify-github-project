@@ -27,13 +27,13 @@ export default function Navbar({ activeTab = 'beranda', onTabChange }: NavbarPro
     <>
       {/* Desktop Navbar */}
       <nav className="hidden md:block md:bg-white md:border-b md:border-gray-200 w-full">
-        <div className="flex items-center justify-between px-8 py-9 max-w-7xl mx-auto">
+        <div className="flex items-center justify-between px-3 py-5 w-full">
           {/* Logo Section */}
           <button 
             onClick={handleLogoClick}
             className="cursor-pointer hover:opacity-80 transition-opacity flex-shrink-0"
           >
-            <div className="w-32 h-14 overflow-hidden relative">
+            <div className="w-[155px] h-[76px] overflow-hidden relative">
               <Image
                 src="https://res.cloudinary.com/dyromez82/image/upload/v1783281334/Artboard_25_300x_cgubub.png"
                 alt="PSI Logo"
@@ -77,8 +77,8 @@ export default function Navbar({ activeTab = 'beranda', onTabChange }: NavbarPro
             >
               Agenda & Absensi
             </button>
-            <button className="text-[#2F2F2F] hover:opacity-70 transition-opacity flex-shrink-0 ml-6">
-              <Search size={20} strokeWidth={2} />
+            <button className="text-[#2F2F2F] hover:opacity-70 transition-opacity flex-shrink-0 ml-7">
+              <Search size={18} strokeWidth={2} />
             </button>
           </div>
         </div>
