@@ -86,18 +86,17 @@ export default function Navbar({ activeTab = 'beranda', onTabChange }: NavbarPro
             </button>
             <button
               onClick={() => handleTabClick('struktur-pengurus')}
-              className={`text-[15px] font-normal whitespace-nowrap transition-colors flex items-center gap-1 ${
+              className={`text-[15px] font-medium  whitespace-nowrap transition-colors flex items-center gap-1 ${
                 activeTab === 'struktur-pengurus'
                   ? 'text-[#2F2F2F]'
                   : 'text-[#CE0000]'
               }`}
             >
               Struktur Pengurus
-              <span className="text-xs">∨</span>
             </button>
             <button
               onClick={() => handleTabClick('agenda-absensi')}
-              className={`text-[15px] font-normal whitespace-nowrap transition-colors ${
+              className={`text-[15px] font-medium  whitespace-nowrap transition-colors ${
                 activeTab === 'agenda-absensi'
                   ? 'text-[#2F2F2F]'
                   : 'text-[#CE0000]'
