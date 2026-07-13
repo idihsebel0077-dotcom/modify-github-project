@@ -1,16 +1,8 @@
 'use client';
 
-import { useScrollHide } from '@/hooks/useScrollHide';
-
 export default function UtilityBar() {
-  const translateY = useScrollHide();
-
   return (
-    <div className={`w-full bg-black text-white h-8 flex items-center justify-end gap-3 px-4 text-xs overflow-hidden`}
-      style={{
-        transform: `translateY(${translateY}%)`,
-        pointerEvents: translateY < -95 ? 'none' : 'auto'
-      }}
+    <div className={`w-full bg-black text-white h-8 flex items-center justify-end gap-3 px-4 text-xs`}
     >
       <span className="font-medium">Follow:</span>
       <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="hover:text-gray-300" title="Facebook">
