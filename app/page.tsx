@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import UtilityBar from '@/components/UtilityBar';
-import Navbar from '@/components/Navbar';
+import Navbar, { MobileNavbar } from '@/components/Navbar';
 import HeroBanner from '@/components/HeroBanner';
 import OrganizerGrid from '@/components/OrganizerGrid';
 import EventSection from '@/components/EventSection';
@@ -23,9 +23,14 @@ export default function Home() {
         <UtilityBar />
       </div>
 
-      {/* Navbar - Fixed below UtilityBar */}
+      {/* Desktop Navbar - Fixed below UtilityBar */}
       <div className="fixed top-8 left-0 right-0 z-[9998]">
         <Navbar activeTab={activeTab} onTabChange={setActiveTab} />
+      </div>
+
+      {/* Mobile Navbar - Fixed below UtilityBar */}
+      <div className="fixed top-8 left-0 right-0 z-[9998]">
+        <MobileNavbar activeTab={activeTab} onTabChange={setActiveTab} />
       </div>
 
       {/* Content Area - Full viewport scrollable by tab */}

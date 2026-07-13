@@ -90,7 +90,28 @@ export default function Navbar({ activeTab = 'beranda', onTabChange }: NavbarPro
         </div>
       </nav>
 
-      {/* Mobile Navbar - Static flow */}
+
+    </>
+  );
+}
+
+export function MobileNavbar({ activeTab = 'beranda', onTabChange }: NavbarProps) {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const handleTabClick = (tab: string) => {
+    if (onTabChange) {
+      onTabChange(tab);
+    }
+    setMobileMenuOpen(false);
+  };
+
+  const handleLogoClick = () => {
+    handleTabClick('beranda');
+  };
+
+  return (
+    <>
+      {/* Mobile Navbar - Fixed */}
       <nav className="md:hidden bg-white border-b border-gray-200 w-full h-24 flex items-center justify-between px-3">
         {/* Logo Mobile - Cropped */}
         <button 
@@ -120,7 +141,7 @@ export default function Navbar({ activeTab = 'beranda', onTabChange }: NavbarPro
         </div>
       </nav>
 
-      {/* Backdrop Overlay - Paling Luar */}
+      {/* Backdrop Overlay */}
       {mobileMenuOpen && (
         <div 
           className="md:hidden fixed inset-0 bg-black/50 z-[9998]"
@@ -128,7 +149,7 @@ export default function Navbar({ activeTab = 'beranda', onTabChange }: NavbarPro
         />
       )}
 
-      {/* Mobile Drawer - Paling Luar & Paling Tinggi */}
+      {/* Mobile Drawer */}
       {mobileMenuOpen && (
         <div className="md:hidden fixed top-0 left-0 h-screen w-[75vw] bg-red-600 z-[9999] flex flex-col">
           {/* Close Button - Top Right */}
