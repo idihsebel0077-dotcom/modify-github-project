@@ -3,7 +3,6 @@
 import Image from 'next/image';
 import { Search, Menu, X } from 'lucide-react';
 import { useState } from 'react';
-import { useScrollHide } from '@/hooks/useScrollHide';
 
 interface NavbarProps {
   activeTab?: string;
@@ -12,7 +11,6 @@ interface NavbarProps {
 
 export default function Navbar({ activeTab = 'beranda', onTabChange }: NavbarProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const translateY = useScrollHide();
 
   const handleTabClick = (tab: string) => {
     if (onTabChange) {
@@ -28,52 +26,52 @@ export default function Navbar({ activeTab = 'beranda', onTabChange }: NavbarPro
   return (
     <>
       {/* Desktop Navbar */}
-      <nav className={`hidden md:fixed md:-top-2.5 md:left-0 md:right-0 md:z-[60] md:bg-white md:border-b md:border-gray-200 md:overflow-visible md:transition-transform md:duration-200 md:ease-out`}
-        style={{ transform: `translateY(${translateY}%)` }}
-      >
-        <div className="flex pl-8 pr-2 py-18 items-center justify-end gap-5 max-w-full mx-auto w-full relative">
+      <nav className={`hidden md:block md:bg-white md:border-b md:border-gray-200 md:overflow-visible`}>
+        <div className="flex pl-12 pr-12 py-3 items-center justify-between gap-8 max-w-full mx-auto w-full relative">
           {/* Logo Section */}
           <button 
             onClick={handleLogoClick}
-            className="fixed left-0 top-17 z-[61] cursor-pointer hover:opacity-80 transition-opacity"
+            className="cursor-pointer hover:opacity-80 transition-opacity flex-shrink-0"
           >
-            <Image
-              src="https://res.cloudinary.com/dyromez82/image/upload/v1783281334/Artboard_25_300x_cgubub.png"
-              alt="PSI Logo"
-              width={350}
-              height={350}
-              className="object-contain"
-            />
+            <div className="w-20 aspect-video overflow-hidden relative">
+              <Image
+                src="https://res.cloudinary.com/dyromez82/image/upload/v1783281334/Artboard_25_300x_cgubub.png"
+                alt="PSI Logo"
+                width={280}
+                height={140}
+                className="object-contain object-left h-full w-auto"
+              />
+            </div>
           </button>
 
           {/* Menu Items */}
-          <div className="flex items-end gap-3 md:gap-6 flex-wrap">
+          <div className="flex items-center gap-6 ml-auto">
             <button
               onClick={() => handleTabClick('beranda')}
-              className={`font-semibold text-sm md:text-base whitespace-nowrap translate-y-6 transition-colors ${
+              className={`font-semibold text-base whitespace-nowrap transition-colors ${
                 activeTab === 'beranda'
                   ? 'text-black hover:text-gray-800'
-                  : 'text-red-600 hover:text-red-700'
+                  : 'text-gray-600 hover:text-black'
               }`}
             >
               Beranda
             </button>
             <button
               onClick={() => handleTabClick('struktur-pengurus')}
-              className={`font-semibold text-sm md:text-base whitespace-nowrap translate-y-6 transition-colors ${
+              className={`font-semibold text-base whitespace-nowrap transition-colors ${
                 activeTab === 'struktur-pengurus'
                   ? 'text-black hover:text-gray-800'
-                  : 'text-red-600 hover:text-red-700'
+                  : 'text-gray-600 hover:text-black'
               }`}
             >
               Struktur Pengurus
             </button>
             <button
               onClick={() => handleTabClick('agenda-absensi')}
-              className={`font-semibold text-sm md:text-base whitespace-nowrap translate-y-6 transition-colors ${
+              className={`font-semibold text-base whitespace-nowrap transition-colors ${
                 activeTab === 'agenda-absensi'
                   ? 'text-black hover:text-gray-800'
-                  : 'text-red-600 hover:text-red-700'
+                  : 'text-gray-600 hover:text-black'
               }`}
             >
               Agenda & Absensi
@@ -81,25 +79,25 @@ export default function Navbar({ activeTab = 'beranda', onTabChange }: NavbarPro
           </div>
 
           {/* Search Icon */}
-          <button className="text-red-600 hover:text-red-700 flex-shrink-0 translate-y-6 transition-colors">
+          <button className="text-black hover:text-gray-700 flex-shrink-0 transition-colors ml-4">
             <Search size={22} />
           </button>
         </div>
       </nav>
 
       {/* Mobile Navbar - Static flow */}
-      <nav className="md:hidden bg-white border-b border-gray-200 w-full h-16 flex items-center justify-between px-3">
+      <nav className="md:hidden bg-white border-b border-gray-200 w-full h-24 flex items-center justify-between px-3">
         {/* Logo Mobile - Cropped */}
         <button 
           onClick={handleLogoClick}
-          className="cursor-pointer hover:opacity-80 transition-opacity flex-shrink-0 w-[150px] h-12 overflow-hidden relative"
+          className="cursor-pointer hover:opacity-80 transition-opacity flex-shrink-0 w-40 aspect-video overflow-hidden relative"
         >
           <Image
             src="https://res.cloudinary.com/dyromez82/image/upload/v1783281334/Artboard_25_300x_cgubub.png"
             alt="PSI Logo"
-            width={320}
-            height={160}
-            className="absolute left-0 top-0 h-full w-auto max-w-none object-left object-contain"
+            width={350}
+            height={175}
+            className="object-contain object-left h-full w-auto"
           />
         </button>
 
@@ -117,17 +115,17 @@ export default function Navbar({ activeTab = 'beranda', onTabChange }: NavbarPro
         </div>
       </nav>
 
-      {/* Backdrop Overlay - Paling Luar */}
+      {/* Backdrop Overlay */}
       {mobileMenuOpen && (
         <div 
-          className="md:hidden fixed inset-0 bg-black/50 z-[9998]"
+          className="md:hidden fixed inset-0 bg-black/50 z-40"
           onClick={() => setMobileMenuOpen(false)}
         />
       )}
 
-      {/* Mobile Drawer - Paling Luar & Paling Tinggi */}
+      {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="md:hidden fixed top-0 left-0 h-screen w-[75vw] bg-red-600 z-[9999] flex flex-col">
+        <div className="md:hidden fixed top-0 left-0 h-screen w-[75vw] bg-red-600 z-50 flex flex-col">
           {/* Close Button - Top Right */}
           <button 
             onClick={() => setMobileMenuOpen(false)}
