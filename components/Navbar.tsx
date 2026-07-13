@@ -88,17 +88,17 @@ export default function Navbar({ activeTab = 'beranda', onTabChange }: NavbarPro
       </nav>
 
       {/* Mobile Navbar - Static flow */}
-      <nav className="md:hidden bg-white border-b border-gray-200 w-full h-20 flex items-center justify-between px-3">
+      <nav className="md:hidden bg-white border-b border-gray-200 w-full h-16 flex items-center justify-between px-3">
         {/* Logo Mobile - Cropped */}
         <button 
           onClick={handleLogoClick}
-          className="cursor-pointer hover:opacity-80 transition-opacity flex-shrink-0 w-[170px] h-16 overflow-hidden relative"
+          className="cursor-pointer hover:opacity-80 transition-opacity flex-shrink-0 w-[150px] h-12 overflow-hidden relative"
         >
           <Image
             src="https://res.cloudinary.com/dyromez82/image/upload/v1783281334/Artboard_25_300x_cgubub.png"
             alt="PSI Logo"
-            width={360}
-            height={180}
+            width={320}
+            height={160}
             className="absolute left-0 top-0 h-full w-auto max-w-none object-left object-contain"
           />
         </button>
