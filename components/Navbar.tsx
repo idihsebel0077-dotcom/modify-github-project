@@ -38,7 +38,7 @@ export default function Navbar({ activeTab = 'beranda', onTabChange }: NavbarPro
 
           {/*
             LOGO_POSITION_AND_SIZE
-            - Position on screen: controlled by `left-6` (distance from left
+            - Position on screen: controlled by `left-15` (distance from left
               edge) and `top-1/2 -translate-y-1/2` (vertically centered).
               Swap the vertical centering for a fixed `top-[Npx]` if you'd
               rather set the vertical position manually instead of auto-center.
@@ -64,7 +64,7 @@ export default function Navbar({ activeTab = 'beranda', onTabChange }: NavbarPro
           {/*
             MENU_POSITION_AND_SIZE
             - Position on screen: controlled by `right-6` (distance from
-              right edge) and `top-[20px]` (vertically centered).
+              right edge) and `top-1/2 -translate-y-1/2` (vertically centered).
             - Spacing between items: `gap-6` below.
             - Font size of each link: `text-[15px]` on each individual button.
           */}
