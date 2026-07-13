@@ -76,7 +76,7 @@ export default function Navbar({ activeTab = 'beranda', onTabChange }: NavbarPro
           <div className="absolute right-[24px] top-1/2 -translate-y-1/2 flex items-center gap-[24px]">
             <button
               onClick={() => handleTabClick('beranda')}
-              className={`text-[15px] font-normal whitespace-nowrap transition-colors ${
+              className={`text-[15px] font-medium whitespace-nowrap transition-colors ${
                 activeTab === 'beranda'
                   ? 'text-[#2F2F2F]'
                   : 'text-[#CE0000]'
