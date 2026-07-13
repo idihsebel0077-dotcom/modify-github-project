@@ -18,16 +18,14 @@ export default function Home() {
 
   return (
     <div className="w-full min-h-screen h-auto bg-white flex flex-col overflow-x-hidden">
-      {/* Header - Desktop floating, Mobile normal flow */}
-      <div className="md:fixed md:top-0 md:left-0 md:right-0 md:z-40">
+      {/* Header - Static */}
+      <div className="relative w-full">
         <UtilityBar />
         <Navbar activeTab={activeTab} onTabChange={setActiveTab} />
       </div>
 
-
-
-      {/* Content Area - Full viewport scrollable by tab */}
-      <main className="flex-1 md:h-full md:pt-40 w-full min-h-screen h-auto">
+      {/* Content Area */}
+      <main className="flex-1 w-full min-h-screen h-auto">
         {/* Beranda Tab */}
         {activeTab === 'beranda' && (
           <HeroBanner title="Tentang PSI" showDescription={true} />
