@@ -19,12 +19,12 @@ export default function Home() {
   return (
     <>
       {/* UtilityBar - Fixed at top */}
-      <div className="fixed top-0 left-0 right-0 z-50">
+      <div className="fixed top-0 left-0 right-0 z-[9999]">
         <UtilityBar />
       </div>
 
       {/* Navbar - Fixed below UtilityBar */}
-      <div className="fixed top-8 left-0 right-0 z-50">
+      <div className="fixed top-8 left-0 right-0 z-[9998]">
         <Navbar activeTab={activeTab} onTabChange={setActiveTab} />
       </div>
 
