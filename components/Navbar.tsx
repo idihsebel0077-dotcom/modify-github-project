@@ -26,7 +26,7 @@ export default function Navbar({ activeTab = 'beranda', onTabChange }: NavbarPro
   return (
     <>
       {/* Desktop Navbar */}
-      <nav className={`hidden md:block md:fixed md:top-8 md:left-0 md:right-0 md:z-[60] md:bg-white md:border-b md:border-gray-200 md:overflow-visible`}
+      <nav className={`hidden md:block md:bg-white md:border-b md:border-gray-200 md:overflow-visible`}
       >
         <div className="flex pl-12 pr-12 py-3 items-center justify-between gap-8 max-w-full mx-auto w-full relative">
           {/* Logo Section with Subtitle */}
