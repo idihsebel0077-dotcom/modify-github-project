@@ -27,13 +27,30 @@ export default function Navbar({ activeTab = 'beranda', onTabChange }: NavbarPro
     <>
       {/* Desktop Navbar */}
       <nav className="hidden md:block md:bg-white md:border-b md:border-gray-200 w-full">
-        <div className="flex items-center justify-between px-6 py-3 w-full">
-          {/* Logo Section */}
-          <button 
+        {/*
+          NAVBAR_HEIGHT: this fixed height controls the navbar's box.
+          Because the logo and menu below are positioned with `absolute`,
+          resizing/repositioning them will NEVER change this container's
+          height anymore — the two are now fully decoupled.
+          👉 Change the navbar's overall height here (currently 100px).
+        */}
+        <div className="relative w-full h-[100px]">
+
+          {/*
+            LOGO_POSITION_AND_SIZE
+            - Position on screen: controlled by `left-6` (distance from left
+              edge) and `top-1/2 -translate-y-1/2` (vertically centered).
+              Swap the vertical centering for a fixed `top-[Npx]` if you'd
+              rather set the vertical position manually instead of auto-center.
+            - Size: controlled ONLY by the w-[...] h-[...] on the inner
+              `relative` div a few lines below (currently 300px x 92px).
+              Change that div freely — it will no longer affect navbar height.
+          */}
+          <button
             onClick={handleLogoClick}
-            className="cursor-pointer hover:opacity-80 transition-opacity flex-shrink-0"
+            className="absolute left-6 top-1/2 -translate-y-1/2 cursor-pointer hover:opacity-80 transition-opacity"
           >
-            <div className="relative w-[300px] h-[92px]">
+            <div className="relative w-[300px] h-[92px]"> {/* 👈 LOGO SIZE: edit w-[...] h-[...] here */}
               <Image
                 src="https://res.cloudinary.com/dyromez82/image/upload/v1783281334/Artboard_25_300x_cgubub.png"
                 alt="PSI Logo"
@@ -44,8 +61,14 @@ export default function Navbar({ activeTab = 'beranda', onTabChange }: NavbarPro
             </div>
           </button>
 
-          {/* Menu Items + Search */}
-          <div className="flex items-center gap-6 ml-auto">
+          {/*
+            MENU_POSITION_AND_SIZE
+            - Position on screen: controlled by `right-6` (distance from
+              right edge) and `top-1/2 -translate-y-1/2` (vertically centered).
+            - Spacing between items: `gap-6` below.
+            - Font size of each link: `text-[15px]` on each individual button.
+          */}
+          <div className="absolute right-6 top-1/2 -translate-y-1/2 flex items-center gap-6">
             <button
               onClick={() => handleTabClick('beranda')}
               className={`text-[15px] font-normal whitespace-nowrap transition-colors ${
