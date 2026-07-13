@@ -37,7 +37,7 @@ export default function Navbar({ activeTab = 'beranda', onTabChange }: NavbarPro
             onClick={handleLogoClick}
             className="flex items-center gap-3 cursor-pointer hover:opacity-80 transition-opacity flex-shrink-0"
           >
-            <div className="w-20 h-16 overflow-hidden relative">
+            <div className="w-20 aspect-video overflow-hidden relative">
               <Image
                 src="https://res.cloudinary.com/dyromez82/image/upload/v1783281334/Artboard_25_300x_cgubub.png"
                 alt="PSI Logo"
