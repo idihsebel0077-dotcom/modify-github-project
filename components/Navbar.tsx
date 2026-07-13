@@ -26,50 +26,52 @@ export default function Navbar({ activeTab = 'beranda', onTabChange }: NavbarPro
   return (
     <>
       {/* Desktop Navbar */}
-      <nav className="hidden md:block md:bg-white md:border-b md:border-gray-200 w-full h-20 flex items-center">
-        <div className="max-w-7xl mx-auto w-full flex justify-between items-center px-6">
+      <nav className={`hidden md:block md:bg-white md:border-b md:border-gray-200 md:overflow-visible`}>
+        <div className="flex pl-12 pr-12 py-3 items-center justify-between gap-8 max-w-full mx-auto w-full relative">
           {/* Logo Section */}
           <button 
             onClick={handleLogoClick}
-            className="cursor-pointer hover:opacity-80 transition-opacity flex-shrink-0 md:static md:w-auto md:h-12 md:overflow-visible"
+            className="cursor-pointer hover:opacity-80 transition-opacity flex-shrink-0"
           >
-            <Image
-              src="https://res.cloudinary.com/dyromez82/image/upload/v1783281334/Artboard_25_300x_cgubub.png"
-              alt="PSI Logo"
-              width={280}
-              height={140}
-              className="md:object-contain md:object-left md:h-full md:w-auto"
-            />
+            <div className="w-20 aspect-video overflow-hidden relative">
+              <Image
+                src="https://res.cloudinary.com/dyromez82/image/upload/v1783281334/Artboard_25_300x_cgubub.png"
+                alt="PSI Logo"
+                width={280}
+                height={140}
+                className="object-contain object-left h-full w-auto"
+              />
+            </div>
           </button>
 
           {/* Menu Items */}
-          <div className="flex items-center gap-8">
+          <div className="flex items-center gap-6 ml-auto">
             <button
               onClick={() => handleTabClick('beranda')}
-              className={`text-[14px] font-semibold tracking-wide uppercase whitespace-nowrap transition-colors ${
+              className={`font-semibold text-base whitespace-nowrap transition-colors ${
                 activeTab === 'beranda'
                   ? 'text-black hover:text-gray-800'
-                  : 'text-[#ED1C24] hover:text-[#ED1C24]'
+                  : 'text-gray-600 hover:text-black'
               }`}
             >
               Beranda
             </button>
             <button
               onClick={() => handleTabClick('struktur-pengurus')}
-              className={`text-[14px] font-semibold tracking-wide uppercase whitespace-nowrap transition-colors ${
+              className={`font-semibold text-base whitespace-nowrap transition-colors ${
                 activeTab === 'struktur-pengurus'
                   ? 'text-black hover:text-gray-800'
-                  : 'text-[#ED1C24] hover:text-[#ED1C24]'
+                  : 'text-gray-600 hover:text-black'
               }`}
             >
               Struktur Pengurus
             </button>
             <button
               onClick={() => handleTabClick('agenda-absensi')}
-              className={`text-[14px] font-semibold tracking-wide uppercase whitespace-nowrap transition-colors ${
+              className={`font-semibold text-base whitespace-nowrap transition-colors ${
                 activeTab === 'agenda-absensi'
                   ? 'text-black hover:text-gray-800'
-                  : 'text-[#ED1C24] hover:text-[#ED1C24]'
+                  : 'text-gray-600 hover:text-black'
               }`}
             >
               Agenda & Absensi
@@ -77,8 +79,8 @@ export default function Navbar({ activeTab = 'beranda', onTabChange }: NavbarPro
           </div>
 
           {/* Search Icon */}
-          <button className="text-black hover:text-gray-700 flex-shrink-0 transition-colors w-5 h-5 ml-2">
-            <Search strokeWidth={2} />
+          <button className="text-black hover:text-gray-700 flex-shrink-0 transition-colors ml-4">
+            <Search size={22} />
           </button>
         </div>
       </nav>
