@@ -34,7 +34,7 @@ export default function Navbar({ activeTab = 'beranda', onTabChange }: NavbarPro
           height anymore — the two are now fully decoupled.
           👉 Change the navbar's overall height here (currently 100px).
         */}
-        <div className="relative w-full h-[150px]">
+        <div className="relative w-full h-[120px]">
 
           {/*
             LOGO_POSITION_AND_SIZE
@@ -50,7 +50,7 @@ export default function Navbar({ activeTab = 'beranda', onTabChange }: NavbarPro
             onClick={handleLogoClick}
             className="absolute left-6 top-1/2 -translate-y-1/2 cursor-pointer hover:opacity-80 transition-opacity"
           >
-            <div className="relative w-[300px] h-[92px]"> {/* 👈 LOGO SIZE: edit w-[...] h-[...] here */}
+            <div className="relative w-[340px] h-[132px]"> {/* 👈 LOGO SIZE: edit w-[...] h-[...] here */}
               <Image
                 src="https://res.cloudinary.com/dyromez82/image/upload/v1783281334/Artboard_25_300x_cgubub.png"
                 alt="PSI Logo"
