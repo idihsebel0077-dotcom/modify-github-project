@@ -88,31 +88,31 @@ export default function Navbar({ activeTab = 'beranda', onTabChange }: NavbarPro
       </nav>
 
       {/* Mobile Navbar - Static flow */}
-      <nav className="md:hidden bg-white border-b border-gray-200 w-full flex items-center justify-between px-4 py-3">
-        {/* Logo Mobile */}
+      <nav className="md:hidden bg-white border-b border-gray-200 w-full h-14 flex items-center justify-between px-3">
+        {/* Logo Mobile - Cropped */}
         <button 
           onClick={handleLogoClick}
-          className="h-10 w-auto cursor-pointer hover:opacity-80 transition-opacity flex-shrink-0"
+          className="cursor-pointer hover:opacity-80 transition-opacity flex-shrink-0 w-28 h-9 overflow-hidden relative"
         >
           <Image
             src="https://res.cloudinary.com/dyromez82/image/upload/v1783281334/Artboard_25_300x_cgubub.png"
             alt="PSI Logo"
-            width={80}
-            height={40}
-            className="h-10 w-auto object-contain"
+            width={280}
+            height={140}
+            className="absolute left-0 top-0 h-full w-auto max-w-none object-left object-contain"
           />
         </button>
 
         {/* Mobile Menu Icons - Right side */}
         <div className="flex items-center gap-4 flex-shrink-0">
-          <button className="text-red-600 hover:text-red-700 transition-colors">
-            <Search size={24} />
+          <button className="text-black hover:opacity-70 transition-opacity p-1">
+            <Search size={20} strokeWidth={1.5} />
           </button>
           <button 
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="text-red-600 hover:text-red-700 transition-colors"
+            className="text-black hover:opacity-70 transition-opacity p-1"
           >
-            <Menu size={28} />
+            <Menu size={20} strokeWidth={1.5} />
           </button>
         </div>
       </nav>

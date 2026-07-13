@@ -17,7 +17,7 @@ export default function Home() {
   const [selectedMember, setSelectedMember] = useState<any>(null);
 
   return (
-    <div className="min-h-screen bg-white flex flex-col overflow-x-hidden md:h-screen md:overflow-hidden">
+    <div className="w-full min-h-screen h-auto bg-white flex flex-col overflow-x-hidden md:h-screen md:overflow-hidden">
       {/* Header - Desktop floating, Mobile normal flow */}
       <div className="hidden md:absolute md:top-0 md:left-0 md:right-0 md:z-40 md:pointer-events-none">
         <div className="md:pointer-events-auto">
@@ -33,7 +33,7 @@ export default function Home() {
       </div>
 
       {/* Content Area - Full viewport scrollable by tab */}
-      <main className="flex-1 overflow-y-auto md:h-full md:pt-40">
+      <main className="flex-1 md:overflow-y-auto md:h-full md:pt-40 w-full min-h-screen h-auto overflow-y-visible md:overflow-y-visible">
         {/* Beranda Tab */}
         {activeTab === 'beranda' && (
           <HeroBanner title="Tentang PSI" showDescription={true} />
