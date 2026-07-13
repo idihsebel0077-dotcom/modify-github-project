@@ -38,7 +38,7 @@ export default function Navbar({ activeTab = 'beranda', onTabChange }: NavbarPro
 
           {/*
             LOGO_POSITION_AND_SIZE
-            - Position on screen: controlled by `left-[24px]` (distance from
+            - Position on screen: controlled by `left-[30px]` (distance from
               left edge) and `top-1/2 -translate-y-1/2` (vertically centered).
               ⚠️ Always use square brackets like `left-[30px]` for a custom
               number — plain `left-30` is NOT a valid Tailwind class (Tailwind's
