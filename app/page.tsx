@@ -17,7 +17,7 @@ export default function Home() {
   const [selectedMember, setSelectedMember] = useState<any>(null);
 
   return (
-    <div className="w-full min-h-screen h-auto bg-white flex flex-col overflow-x-hidden md:h-screen md:overflow-hidden">
+    <div className="w-full min-h-screen h-auto bg-white flex flex-col overflow-x-hidden">
       {/* Header - Desktop floating, Mobile normal flow */}
       <div className="md:fixed md:top-0 md:left-0 md:right-0 md:z-40">
         <UtilityBar />

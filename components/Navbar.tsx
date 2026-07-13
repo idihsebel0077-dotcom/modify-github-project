@@ -31,23 +31,29 @@ export default function Navbar({ activeTab = 'beranda', onTabChange }: NavbarPro
       <nav className={`hidden md:block md:fixed md:top-8 md:left-0 md:right-0 md:z-[60] md:bg-white md:border-b md:border-gray-200 md:overflow-visible md:transition-transform md:duration-200 md:ease-out`}
         style={{ transform: `translateY(${translateY}%)` }}
       >
-        <div className="flex pl-8 pr-8 py-4 items-center justify-end gap-5 max-w-full mx-auto w-full relative">
-          {/* Logo Section */}
+        <div className="flex pl-12 pr-12 py-3 items-center justify-between gap-8 max-w-full mx-auto w-full relative">
+          {/* Logo Section with Subtitle */}
           <button 
             onClick={handleLogoClick}
-            className="absolute left-8 top-1/2 -translate-y-1/2 z-[61] cursor-pointer hover:opacity-80 transition-opacity w-40 h-16"
+            className="flex items-center gap-3 cursor-pointer hover:opacity-80 transition-opacity flex-shrink-0"
           >
-            <Image
-              src="https://res.cloudinary.com/dyromez82/image/upload/v1783281334/Artboard_25_300x_cgubub.png"
-              alt="PSI Logo"
-              width={280}
-              height={140}
-              className="object-contain object-left h-full w-auto"
-            />
+            <div className="w-20 h-16 overflow-hidden relative">
+              <Image
+                src="https://res.cloudinary.com/dyromez82/image/upload/v1783281334/Artboard_25_300x_cgubub.png"
+                alt="PSI Logo"
+                width={280}
+                height={140}
+                className="object-contain object-left h-full w-auto"
+              />
+            </div>
+            <div className="text-sm text-gray-700 leading-tight">
+              <div className="font-semibold">PSI</div>
+              <div className="text-xs">Partai Super Tbk.</div>
+            </div>
           </button>
 
           {/* Menu Items */}
-          <div className="flex items-center gap-8 ml-auto mr-6">
+          <div className="flex items-center gap-6 ml-auto">
             <button
               onClick={() => handleTabClick('beranda')}
               className={`font-semibold text-base whitespace-nowrap transition-colors ${
@@ -81,7 +87,7 @@ export default function Navbar({ activeTab = 'beranda', onTabChange }: NavbarPro
           </div>
 
           {/* Search Icon */}
-          <button className="text-black hover:text-gray-700 flex-shrink-0 transition-colors">
+          <button className="text-black hover:text-gray-700 flex-shrink-0 transition-colors ml-4">
             <Search size={22} />
           </button>
         </div>
