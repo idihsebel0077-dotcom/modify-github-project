@@ -155,18 +155,29 @@ export default function Navbar({ activeTab = 'beranda', onTabChange }: NavbarPro
         </div>
       </nav>
 
-      {/* Backdrop Overlay — fade in/out mengikuti mobileMenuOpen */}
+      {/* Backdrop Overlay — fade in/out mengikuti mobileMenuOpen (inline style,
+          bukan class Tailwind, biar animasinya pasti jalan apapun config-nya) */}
       <div 
-        className={`md:hidden fixed inset-0 bg-black/50 z-40 transition-opacity duration-300 ${
-          mobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
-        }`}
+        className="md:hidden fixed inset-0 bg-black/50 z-40"
+        style={{
+          opacity: mobileMenuOpen ? 1 : 0,
+          pointerEvents: mobileMenuOpen ? 'auto' : 'none',
+          transition: 'opacity 300ms ease-in-out',
+        }}
         onClick={() => setMobileMenuOpen(false)}
       />
 
-      {/* Mobile Drawer — slide in dari kiri saat mobileMenuOpen, slide out saat ditutup */}
-      <div className={`md:hidden fixed top-0 left-0 h-screen w-[75vw] bg-red-600 z-50 flex flex-col transition-transform duration-300 ease-out ${
-        mobileMenuOpen ? 'translate-x-0' : '-translate-x-full pointer-events-none'
-      }`}>
+      {/* Mobile Drawer — slide in dari kiri saat mobileMenuOpen, slide out saat
+          ditutup (inline style, bukan class Tailwind, biar animasinya pasti
+          jalan apapun config-nya) */}
+      <div
+        className="md:hidden fixed top-0 left-0 h-screen w-[75vw] bg-red-600 z-50 flex flex-col"
+        style={{
+          transform: mobileMenuOpen ? 'translateX(0)' : 'translateX(-100%)',
+          pointerEvents: mobileMenuOpen ? 'auto' : 'none',
+          transition: 'transform 300ms ease-out',
+        }}
+      >
           {/* Close Button - Top Right */}
           <button 
             onClick={() => setMobileMenuOpen(false)}
