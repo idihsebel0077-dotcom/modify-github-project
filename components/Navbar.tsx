@@ -112,7 +112,7 @@ export default function Navbar({ activeTab = 'beranda', onTabChange }: NavbarPro
       </nav>
 
       {/* Mobile Navbar - Static flow */}
-      <nav className="md:hidden bg-white border-b border-gray-200 w-full h-28 flex items-center justify-between px-4">
+      <nav className="md:hidden bg-white border-b border-gray-200 w-full h-[116px] flex items-center justify-between px-4">
         {/* Logo Mobile — enlarged + cropped to icon + "PSI" only (tagline
             hidden). NOTE: uses object-cover (NOT object-contain) — contain
             never crops, it only shrinks the whole image to fit, which is
