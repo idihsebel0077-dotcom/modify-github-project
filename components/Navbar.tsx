@@ -113,18 +113,22 @@ export default function Navbar({ activeTab = 'beranda', onTabChange }: NavbarPro
 
       {/* Mobile Navbar - Static flow */}
       <nav className="md:hidden bg-white border-b border-gray-200 w-full h-[120px] flex items-center justify-between px-4">
-        {/* Logo Mobile — enlarged + cropped to icon + "PSI" only (tagline
-            hidden). NOTE: uses object-cover (NOT object-contain) — contain
-            never crops, it only shrinks the whole image to fit, which is
-            why the tagline kept showing before. object-cover actually
-            fills/crops the box, anchored left via object-left.
-            👉 h-[...] controls overall size/zoom of the visible logo.
-            👉 w-[...] controls how much is revealed — narrower = more of
-               the tagline gets cropped off; widen it a bit if "PSI" itself
-               looks clipped, narrow it if tagline is still peeking through. */}
+        {/* Logo Mobile — cropped to icon + "PSI" only (tagline hidden).
+            Uses object-cover (NOT object-contain) — contain never crops, it
+            only shrinks the whole image to fit, which is why the tagline
+            kept showing before. object-cover fills/crops the box, anchored
+            left via object-left.
+            Nav parent sudah `flex items-center`, jadi logo otomatis center
+            vertikal di dalam box navbar (h-[120px]) — tidak perlu maksa
+            logo setinggi navbar lagi seperti sebelumnya (itu penyebab logo
+            kelihatan kegedean/oversized).
+            👉 h-[...] = tinggi tampilan logo (bukan tinggi navbar).
+            👉 w-[...] = seberapa banyak yang kelihatan — sempitkan kalau
+               tagline "Partai Super Tbk." masih nongol, lebarkan kalau
+               tulisan "PSI"-nya sendiri masih kepotong. */}
         <button 
           onClick={handleLogoClick}
-          className="cursor-pointer hover:opacity-80 transition-opacity flex-shrink-0 relative w-[133px] h-[120px] overflow-hidden"
+          className="cursor-pointer hover:opacity-80 transition-opacity flex-shrink-0 relative w-[118px] h-[62px] overflow-hidden"
         >
           <Image
             src="https://res.cloudinary.com/dyromez82/image/upload/v1783281334/Artboard_25_300x_cgubub.png"
