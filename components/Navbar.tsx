@@ -155,17 +155,18 @@ export default function Navbar({ activeTab = 'beranda', onTabChange }: NavbarPro
         </div>
       </nav>
 
-      {/* Backdrop Overlay */}
-      {mobileMenuOpen && (
-        <div 
-          className="md:hidden fixed inset-0 bg-black/50 z-40"
-          onClick={() => setMobileMenuOpen(false)}
-        />
-      )}
+      {/* Backdrop Overlay — fade in/out mengikuti mobileMenuOpen */}
+      <div 
+        className={`md:hidden fixed inset-0 bg-black/50 z-40 transition-opacity duration-300 ${
+          mobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+        }`}
+        onClick={() => setMobileMenuOpen(false)}
+      />
 
-      {/* Mobile Drawer */}
-      {mobileMenuOpen && (
-        <div className="md:hidden fixed top-0 left-0 h-screen w-[75vw] bg-red-600 z-50 flex flex-col">
+      {/* Mobile Drawer — slide in dari kiri saat mobileMenuOpen, slide out saat ditutup */}
+      <div className={`md:hidden fixed top-0 left-0 h-screen w-[75vw] bg-red-600 z-50 flex flex-col transition-transform duration-300 ease-out ${
+        mobileMenuOpen ? 'translate-x-0' : '-translate-x-full pointer-events-none'
+      }`}>
           {/* Close Button - Top Right */}
           <button 
             onClick={() => setMobileMenuOpen(false)}
@@ -207,8 +208,7 @@ export default function Navbar({ activeTab = 'beranda', onTabChange }: NavbarPro
               Agenda & Absensi
             </button>
           </div>
-        </div>
-      )}
+      </div>
     </>
   );
 }
