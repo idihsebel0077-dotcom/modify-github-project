@@ -25,7 +25,7 @@ export default function Home() {
       </div>
 
       {/* Content Area */}
-      <main className="flex-1 w-full min-h-screen h-auto">
+      <main className="flex-1 w-full h-auto flex flex-col">
         {/* Beranda Tab */}
         {activeTab === 'beranda' && (
           <HeroBanner title="Tentang PSI" showDescription={true} />
