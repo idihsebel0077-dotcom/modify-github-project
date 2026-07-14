@@ -112,11 +112,14 @@ export default function Navbar({ activeTab = 'beranda', onTabChange }: NavbarPro
       </nav>
 
       {/* Mobile Navbar - Static flow */}
-      <nav className="md:hidden bg-white border-b border-gray-200 w-full h-20 flex items-center justify-between px-4">
-        {/* Logo Mobile */}
+      <nav className="md:hidden bg-white border-b border-gray-200 w-full h-28 flex items-center justify-between px-4">
+        {/* Logo Mobile — enlarged + cropped to icon + "PSI" only (tagline
+            hidden via overflow-hidden on a narrower box), matching the
+            reference site's mobile logo. Adjust w-[...]/h-[...] here if the
+            crop needs to reveal more/less, or the size needs tweaking. */}
         <button 
           onClick={handleLogoClick}
-          className="cursor-pointer hover:opacity-80 transition-opacity flex-shrink-0 relative w-36 h-14"
+          className="cursor-pointer hover:opacity-80 transition-opacity flex-shrink-0 relative w-[170px] h-[88px] overflow-hidden"
         >
           <Image
             src="https://res.cloudinary.com/dyromez82/image/upload/v1783281334/Artboard_25_300x_cgubub.png"
@@ -134,7 +137,7 @@ export default function Navbar({ activeTab = 'beranda', onTabChange }: NavbarPro
           </button>
           <button 
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="text-black stroke-[2.5] w-6 h-6 flex items-center justify-center hover:opacity-70 transition-opacity"
+            className="text-[#CE0000] stroke-[2.5] w-6 h-6 flex items-center justify-center hover:opacity-70 transition-opacity"
           >
             <Menu size={22} strokeWidth={2.5} />
           </button>
