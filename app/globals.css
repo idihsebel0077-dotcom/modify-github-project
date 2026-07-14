@@ -6,9 +6,17 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Remove all transitions */
-* {
-  transition: none !important;
+/* Hormati preferensi user yang set "reduce motion" di OS/browser-nya —
+   tapi jangan matiin transition buat semua orang. Rule lama:
+     * { transition: none !important; }
+   ini yang bikin drawer/backdrop di Navbar.tsx (dan transition lain di
+   seluruh situs) gak pernah animasi, karena !important di sini ngalahin
+   inline style={{ transition: ... }} juga. */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
 }
 
 :root {
