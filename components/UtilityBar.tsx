@@ -2,7 +2,7 @@
 
 export default function UtilityBar() {
   return (
-    <div className="w-full bg-black text-white h-auto md:h-10 flex items-center justify-end px-4 md:px-10 pt-2 pb-3 md:pt-0 md:pb-0">
+    <div className="w-full bg-black text-white h-auto md:h-10 flex items-center justify-end px-4 md:px-10 pt-2 pb-2 md:pt-0 md:pb-0">
       <span className="text-base font-semibold mr-3 md:mr-10">Follow:</span>
       <div className="flex items-center gap-2.5 md:gap-6">
         <a href="https://www.facebook.com/psi.or.id" target="_blank" rel="noopener noreferrer" className="hover:opacity-70 transition-opacity" title="Facebook">
