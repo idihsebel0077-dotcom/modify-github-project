@@ -1,17 +1,65 @@
 'use client';
 
+import { useEffect, useRef, useState } from 'react';
+
 interface HeroBannerProps {
   title: string;
   showDescription?: boolean;
 }
 
 export default function HeroBanner({ title, showDescription = false }: HeroBannerProps) {
+  // ── MOBILE-ONLY AUTO-SHRINK TITLE ──────────────────────────────────────
+  // Bug: judul panjang (mis. "AGENDA/ABSENSI") wrap ke baris ke-2 di mobile.
+  // Fix: ukur lebar judul vs lebar box, lalu turunin font-size sampai muat
+  // 1 baris. Ini HANYA jalan di bawah 768px (breakpoint `md:` Tailwind).
+  // Di ≥768px, fontSize inline langsung dilepas (undefined) sehingga class
+  // desktop yang sudah ada (text-5xl, md:leading-[1], md:pt-[82px], dst)
+  // kembali 100% yang mengontrol tampilan — tidak ada yang berubah di desktop.
+  const titleWrapRef = useRef<HTMLDivElement>(null);
+  const titleRef = useRef<HTMLHeadingElement>(null);
+  const [mobileFontSizePx, setMobileFontSizePx] = useState<number | undefined>(undefined);
+
+  useEffect(() => {
+    const MOBILE_BREAKPOINT = 768; // sama dengan breakpoint md: Tailwind
+    const MAX_FONT_SIZE = 48; // px, setara text-5xl (ukuran awal/maksimal)
+    const MIN_FONT_SIZE = 22; // px, batas bawah biar judul tetap kebaca
+
+    const fitTitleToOneLine = () => {
+      const wrap = titleWrapRef.current;
+      const heading = titleRef.current;
+      if (!wrap || !heading) return;
+
+      if (window.innerWidth >= MOBILE_BREAKPOINT) {
+        setMobileFontSizePx(undefined); // desktop: serahkan lagi ke class md:
+        return;
+      }
+
+      let size = MAX_FONT_SIZE;
+      heading.style.fontSize = `${size}px`;
+
+      while (heading.scrollWidth > wrap.clientWidth && size > MIN_FONT_SIZE) {
+        size -= 1;
+        heading.style.fontSize = `${size}px`;
+      }
+
+      setMobileFontSizePx(size);
+    };
+
+    fitTitleToOneLine();
+    window.addEventListener('resize', fitTitleToOneLine);
+    return () => window.removeEventListener('resize', fitTitleToOneLine);
+  }, [title]);
+
   return (
     <>
       {/* Red Banner with Title */}
       <div className="bg-[#CE0000] w-full min-h-[139px] md:h-[140px] flex items-end md:items-start justify-start px-3 pb-1 md:pb-0">
-        <div className="w-full min-w-0 md:min-w-[auto]">
-          <h1 className="text-5xl font-bold tracking-tight text-white uppercase leading-tight md:leading-[1] md:pt-[82px] break-words md:break-normal">
+        <div ref={titleWrapRef} className="w-full min-w-0 md:min-w-[auto] overflow-hidden">
+          <h1
+            ref={titleRef}
+            style={mobileFontSizePx ? { fontSize: `${mobileFontSizePx}px` } : undefined}
+            className="text-5xl font-bold tracking-tight text-white uppercase leading-tight md:leading-[1] md:pt-[82px] whitespace-nowrap md:whitespace-normal break-words md:break-normal"
+          >
             {title}
           </h1>
         </div>
