@@ -26,7 +26,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="id" className="w-full min-h-screen h-auto">
-      <body className={`${geist.className} antialiased bg-white w-full min-h-screen h-auto overflow-y-visible overflow-x-hidden flex flex-col`}>
+      <body className={`${geist.className} antialiased bg-white w-full min-h-screen h-auto overflow-y-visible overflow-x-hidden`}>
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
