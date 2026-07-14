@@ -119,16 +119,18 @@ export default function Navbar({ activeTab = 'beranda', onTabChange }: NavbarPro
             kept showing before. object-cover fills/crops the box, anchored
             left via object-left.
             Nav parent sudah `flex items-center`, jadi logo otomatis center
-            vertikal di dalam box navbar (h-[120px]) — tidak perlu maksa
-            logo setinggi navbar lagi seperti sebelumnya (itu penyebab logo
-            kelihatan kegedean/oversized).
+            vertikal di dalam box navbar (h-[120px]).
+            Ukuran w-[235px] h-[79px] ini hasil ukur pixel langsung dari
+            screenshot referensi (bukan tebakan) — supaya "PSI" kebaca utuh
+            (sebelumnya cuma "P" yang kelihatan) dan skala logo match sama
+            besar-kecilnya di referensi.
             👉 h-[...] = tinggi tampilan logo (bukan tinggi navbar).
             👉 w-[...] = seberapa banyak yang kelihatan — sempitkan kalau
                tagline "Partai Super Tbk." masih nongol, lebarkan kalau
                tulisan "PSI"-nya sendiri masih kepotong. */}
         <button 
           onClick={handleLogoClick}
-          className="cursor-pointer hover:opacity-80 transition-opacity flex-shrink-0 relative w-[118px] h-[62px] overflow-hidden"
+          className="cursor-pointer hover:opacity-80 transition-opacity flex-shrink-0 relative w-[235px] h-[79px] overflow-hidden"
         >
           <Image
             src="https://res.cloudinary.com/dyromez82/image/upload/v1783281334/Artboard_25_300x_cgubub.png"
